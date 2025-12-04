@@ -26,6 +26,7 @@
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "@types/node": "^22.15.30",
+    "@types/web-push": "^3.6.4",
     "concurrently": "^9.2.1",
     "nodemon": "^3.1.10",
     "rimraf": "^6.0.1",
