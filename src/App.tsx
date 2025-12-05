@@ -36,7 +36,7 @@ const sendNotification = async () => {
   }
 };
 
-function urlBase64ToUint8Array(base64String) {
+function urlBase64ToUint8Array(base64String: any) {
   const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
   const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
 
@@ -49,7 +49,7 @@ function urlBase64ToUint8Array(base64String) {
   return outputArray;
 }
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <div className="button">
       <button onClick={subscribeUser}>Subscribe</button>
