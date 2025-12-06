@@ -22,7 +22,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// In-memory subscriptions (replace with DB in production)
 let subscriptions: any[] = [];
 
 // Use VAPID keys from environment variables
