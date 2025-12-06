@@ -8,10 +8,22 @@ const publicKey =
 const subscribeUser = async () => {
   try {
     // Register service worker
+    console.log('registering service worker...');
     const registration = await navigator.serviceWorker.register('/sw.js');
 
+    registration.onupdatefound = () => {
+      console.log('Service worker update found');
+    };
+
+    registration.installing && console.log('Installing..');
+    registration.waiting && console.log('Waiting...');
+    registration.active && console.log('Active...');
+
+    const readyReg = await navigator.serviceWorker.ready;
+    console.log('Service worker ready:', readyReg);
+
     // Subscribe to push
-    const subscription = await registration.pushManager.subscribe({
+    const subscription = await readyReg.pushManager.subscribe({
       userVisibleOnly: true,
       applicationServerKey: urlBase64ToUint8Array(publicKey),
     });
